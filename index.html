@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo List</title>
+
+    <link rel="stylesheet" href="./style.css">
+
+    <!-- links for google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+    <!-- links for font awesome CDN -->
+    <script src="https://kit.fontawesome.com/1aec3f9d30.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <section>
+        <h2>Plan your day.</h2>
+        <div class="container">
+            <div class="input-wrapper">
+                <label for="todo-text"></label>
+                <input type="text" id="todo-text" placeholder="Add a new task" alt="input new todo task field">
+                <button onclick=addTask() title="add button" alt="Add task button" id="add-button">
+                    <i class="fa-solid fa-plus"></i>
+                </button>
+            </div>
+            <div class="list-wrapper">
+                <ul class="todo-list">
+                    <!-- <li id="todo-item-1" class="todo-item">
+                        <div class="wrapper">
+                            <div id="checkbox-item-1" class="checkbox"><p/></div>
+                            <div class="text-wrapper">
+                                <label class="task-content" for="task-text-1">Task 1</label>
+                                <input type="task-text" id="task-text-1" placeholder="Update task" alt="Update todo task field">
+                            </div>
+                        </div>
+                        <div class="actions">
+                            <button onclick= updateTask(task) title="update button" alt="Update task button">
+                                <i class="fa-solid fa-pen"></i>
+                            </button>
+                            <button onclick= deleteTask(task) title="delete button" alt="Update task button">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                            <div class="drag-icon" title="drag icon" alt="Drag icon">
+                                <i class="fa-solid fa-grip"></i>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li id="todo-item-2" class="todo-item">
+                        <div class="wrapper">
+                            <div class="checkbox"><p/></div>
+                            <div class="text-wrapper">
+                                <label class="task-content" for="task-text-2">Task 2</label>
+                                <input type="task-text" id="task-text-2" placeholder="Update task" alt="Update todo task field">
+                            </div>
+                        </div>
+                        <div class="actions">
+                            <button onclick= updateTask(task) title="update button" 
+                            alt="Update task button">
+                                <i class="fa-solid fa-pen"></i>
+                            </button>
+                            <button onclick= deleteTask(task) title="delete button" alt="Update task button">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                            <div class="drag-icon" title="drag icon" alt="Drag icon">
+                                <i class="fa-solid fa-grip"></i>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li id="todo-item-3" class="todo-item">
+                        <div class="wrapper">
+                            <div class="checkbox"><p/></div>
+                            <div class="text-wrapper">
+                                <label class="task-content" for="task-text-3">Task 3</label>
+                                <input type="task-text" id="task-text-3" placeholder="Update task" alt="Update todo task field">
+                            </div>
+                        </div>
+                        <div class="actions">
+                            <button onclick= updateTask(task) title="update button" alt="Update task button">
+                                <i class="fa-solid fa-pen"></i>
+                            </button>
+                            <button onclick= deleteTask(task) title="delete button" alt="Update task button">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                            <div class="drag-icon" title="drag icon" alt="Drag icon">
+                                <i class="fa-solid fa-grip"></i>
+                            </div>
+                        </div>
+                    </li> -->
+                </ul>
+            </div>
+        </div>
+        <p id="task-counter"></p>
+    </section>
+    <script src="./script.js"></script>
+</body>
+</html>

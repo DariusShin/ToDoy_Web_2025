@@ -1,0 +1,307 @@
+// define varibles
+// colors
+$accent-color: #568AA2;
+$bg-color: #FDFDFD;
+$primary-color: #212121;
+$hover-color: #B3B3B5;
+$button-color: #3A3C47;
+$button-hover-color: #E8E8E8;
+$shadow-color: #C3C3C3;
+
+// font-sizes
+$text-2xl: 1.5rem; // 24px
+$text-base: 1rem; // 16px
+$text-sm: 0.875rem; // 14px
+$text-xs: 0.75rem; // 12px
+
+// margins
+$p_m-1: 0.25; // 4px
+$p_m-2: 0.5rem; // 8px
+$p_m-3: 0.75rem; // 12px
+$p_m-4: 1rem; // 16px
+$p_m-5: 1.25rem; // 20px
+
+// define mixins
+@mixin flexBox ($direction, $justify, $align, $wrap){
+    display: flex;
+    flex-flow: $wrap $direction;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+@mixin debugLine($color){
+    border: 1px solid $color;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', san-serif;
+    background: #fff;
+    color: $primary-color;
+    font-size: $text-sm;
+    height: 100vh;
+    @include flexBox(column, center, center, nowrap);
+}
+
+h2 {
+    font-size: $text-2xl;
+    margin-block: $p_m-3;
+}
+
+section{
+    @include flexBox(column, flex-start, center, nowrap);
+    border: 1px solid $shadow-color;
+    width: 50vw;
+    min-height: 70vh;
+    border-radius: $p_m-4;
+    box-shadow: 5px 5px 10px $shadow-color;
+    position: relative;
+}
+
+.container {
+    background: $bg-color;
+    position: relative;
+    // @include debugLine(purple);
+    @include flexBox(column, flex-start, center, nowrap);
+    width: 100%; height: 100%;
+    gap: $p_m-4;
+
+    & > * {
+        @include flexBox(row, center, center, nowrap);
+    }
+}
+
+input {
+    border: 1px solid $hover-color;
+}
+
+input::placeholder {
+    color: $hover-color;
+} 
+
+.input-wrapper{
+    // @include debugLine(green);
+    width: 100%;
+
+    & > input {
+        padding: $p_m-2;
+        margin: $p_m-2;
+        width: 75%;
+        font-size: $text-base;
+        border-radius: $p_m-2;
+        border: 1px solid $hover-color;
+    }
+
+    & > button {
+        padding-block: 0.375rem;
+        padding-inline: $p_m-2;
+        margin: $p_m-2;
+        background: $button-color;
+        color: $bg-color;
+        border: none;
+        border-radius: 0.375rem;
+        cursor: pointer;
+        transition: background 0.2s;
+
+        &:hover {
+            background: $button-hover-color;
+        }
+
+        & > i {
+            font-size: $text-2xl;
+        }
+
+        &:hover > i {
+            color: $button-color;
+        }
+    }
+}
+
+.list-wrapper{
+    // @include debugLine(yellow);
+    @include flexBox(column, flex-start, center, nowrap);
+    width: 100%;
+    height: 100%;
+
+    & > .todo-list {
+        width: 100%;
+        max-height: 50vh;
+        overflow-y: scroll;
+        list-style: none;
+        padding-inline: $p_m-3;
+        // @include debugLine(blue);
+
+        &::-webkit-scrollbar {
+            width: 0.5rem;
+            border-radius: 1in;
+        }
+
+        &::-webkit-scrollbar-track {
+            background: $button-hover-color;
+        }
+
+        &::-webkit-scrollbar-thumb {
+            background: $hover-color;
+            border-radius: 0.25rem;
+            transition: background 0.3s ease;
+        }
+
+        &::-webkit-scrollbar-thumb:hover {
+            background: lighten($hover-color, 10%);
+        }
+    }
+
+    & > .todo-list > .todo-item {
+        padding: $p_m-2;
+        margin: $p_m-2;
+        background: $button-hover-color;
+        border-radius: $p_m-2;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border: 1px solid $button-hover-color;
+        transition: translate 0.2s;
+
+        & > .wrapper {
+            @include flexBox(row, center, center, nowrap); gap: $p_m-3;
+
+            & > .checkbox {
+                min-width: 1rem; min-height: 1rem; 
+                background: $hover-color; 
+                border-radius:50%;
+                position: relative;
+                @include flexBox(row,center,center,nowrap);
+
+                & > p {
+                    margin:0; position: absolute;
+                    border-radius: 50%;
+                    width: 60%; height: 60%;
+                    background: $accent-color;
+                    display: none;
+                }
+            }
+
+            & > .text-wrapper {
+                position: relative;
+                @include flexBox(row, flex-start, center, nowrap);
+
+                & > .task-content {
+                    font-size: $text-sm;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 1;
+                    line-clamp:1;
+                    -webkit-box-orient: vertical;
+                    overflow: hidden;
+                }
+
+                & > input {
+                    position: absolute;
+                    font-size: $text-sm;
+                    padding-block: 4px;
+                    display: none;
+                }
+            } 
+        }
+
+        & > .actions {
+            display: flex;
+            gap: $p_m-4;
+            // @include debugLine(red);
+
+            & > button {
+                background: transparent; 
+                border:none;
+
+                & > i {
+                    font-size: $text-sm;
+                    transition: all 0.3s;
+                }
+
+                &:hover i {
+                    color: $hover-color;
+                }
+            }
+
+            & .fa-grip {
+                rotate: 90deg;
+            }
+        }
+
+        &:hover {
+            border: 1px solid $accent-color;
+            translate: -5px;
+        }
+
+        // style when item being drag moving
+        &.moving {
+            pointer-events: none; /* Disable interaction while dragging */
+            opacity: 0.5; /* Visual feedback for the moving item */
+            border: 1px dashed $accent-color;
+
+            & .checkbox {
+                background: #fff;
+            }
+
+            & i {
+                color: #fff;
+            }
+        }
+    }
+
+    & > .todo-list > .completed{
+        & label {
+            color: $hover-color;
+            text-decoration: line-through;  
+        }
+
+        & > .actions > button:nth-child(1) {
+            display: none;
+        }
+
+        & > .wrapper > .checkbox > p {
+            display: block;
+        }
+    }
+}
+
+#task-counter {
+    font-size: $text-xs;
+    color: $hover-color;
+    margin: $p_m-3;
+    align-self: flex-start;
+}
+
+// media query for mobile devices
+@media screen and (width <= 768px) {
+    section {
+        width: 90svw;
+        min-height: 75svh;
+    }
+
+    .list-wrapper{
+        // @include debugLine(yellow);
+        @include flexBox(column, flex-start, center, nowrap);
+        width: 100%;
+        height: 100%;
+    
+        & > .todo-list {  
+            & > .todo-item {
+                // for mobile devices
+                touch-action: none; /* Prevent default touch actions like scrolling */
+                -webkit-user-select: none; /* Disable text selection while dragging */
+                user-select: none;
+                pointer-events: auto; /* Allow interaction only when needed */
+            }
+
+            &::-webkit-scrollbar {
+                width: 0.65rem;
+                border-radius: 1in;
+            }
+        }
+    }
+}
