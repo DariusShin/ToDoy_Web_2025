@@ -1,0 +1,133 @@
+// define varibles
+// colors
+$accent-color: #568AA2;
+$bg-color: #FDFDFD;
+$primary-color: #212121;
+$hover-color: #B3B3B5;
+$button-color: #3A3C47;
+$button-hover-color: #E8E8E8;
+$shadow-color: #C3C3C3;
+
+// font-sizes
+$text-2xl: 1.5rem; // 24px
+$text-xl: 1.25rem; // 20px
+$text-base: 1rem; // 16px
+$text-sm: 0.875rem; // 14px
+$text-xs: 0.75rem; // 12px
+
+// margins
+$p_m-1: 0.25; // 4px
+$p_m-2: 0.5rem; // 8px
+$p_m-3: 0.75rem; // 12px
+$p_m-4: 1rem; // 16px
+$p_m-5: 1.25rem; // 20px
+
+// define mixins
+@mixin flexBox ($direction, $justify, $align, $wrap){
+    display: flex;
+    flex-flow: $wrap $direction;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+@mixin debugLine($color){
+    border: 1px solid $color;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', san-serif;
+    background: #fff;
+    color: $primary-color;
+    font-size: $text-sm;
+    height: 100vh;
+    @include flexBox(row, center, center, nowrap);
+}
+
+main{
+    @include flexBox(column, center, center, nowrap);
+    border: 1px solid $shadow-color;
+    width: 50vw;
+    min-height: 65vh;
+    border-radius: $p_m-4;
+    box-shadow: 5px 5px 10px $shadow-color;
+    position: relative;
+
+    & > * {
+        @include debugLine(red);
+        width: 80%;
+    }
+}
+
+.header {
+    @include flexBox(column, center, center, nowrap);
+    width: 100%;
+    padding: $p_m-3;
+
+    & > .logo {
+        width: 3.25rem; height: 3.25rem;
+    }
+
+    & > h3 {
+        font-size: $text-xl;
+        margin-block: $p_m-3;
+        line-height: 0.5rem;
+    }
+
+    & > p {line-height:0.5rem}
+}
+
+.container {
+    @include debugLine($accent-color);
+    padding: 0.25rem 1rem;
+
+    & > div {
+        @include debugLine($accent-color);
+        margin-block: $p_m-2;
+    }
+
+    & > .login-form {
+        @include debugLine(black);
+        margin-block: $p_m-2;
+
+        & > * {
+            @include flexBox(column, center, flex-start, nowrap);
+            margin-left: 0.25rem;
+        }
+    }
+
+    & .email-wrapper {
+        @include debugLine(black);
+    }
+
+    & .password-wrapper {
+        @include debugLine(red);
+    }
+
+    & .button-wrapper {
+        @include debugLine(purple);
+
+        & > button {
+            border-radius: 1rem;
+            width: 100%;
+            padding-block: 0.5rem;
+            color: $hover-color;
+            background: $button-color;
+            font-weight: 600;
+        }
+    }
+}
+
+
+// media queries for mobile devices
+@media screen and (width <= 768px){
+    main {
+        width: 90vw;
+        min-height: 60svh;
+    }
+}

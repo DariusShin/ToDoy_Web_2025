@@ -1,0 +1,99 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", san-serif;
+  background: #fff;
+  color: #212121;
+  font-size: 0.875rem;
+  height: 100vh;
+  display: flex;
+  flex-flow: nowrap row;
+  justify-content: center;
+  align-items: center;
+}
+
+main {
+  display: flex;
+  flex-flow: nowrap column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #C3C3C3;
+  width: 50vw;
+  min-height: 65vh;
+  border-radius: 1rem;
+  box-shadow: 5px 5px 10px #C3C3C3;
+  position: relative;
+}
+main > * {
+  border: 1px solid red;
+  width: 80%;
+}
+
+.header {
+  display: flex;
+  flex-flow: nowrap column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 0.75rem;
+}
+.header > .logo {
+  width: 3.25rem;
+  height: 3.25rem;
+}
+.header > h3 {
+  font-size: 1.25rem;
+  margin-block: 0.75rem;
+  line-height: 0.5rem;
+}
+.header > p {
+  line-height: 0.5rem;
+}
+
+.container {
+  border: 1px solid #568AA2;
+  padding: 0.25rem 1rem;
+}
+.container > div {
+  border: 1px solid #568AA2;
+  margin-block: 0.5rem;
+}
+.container > .login-form {
+  border: 1px solid black;
+  margin-block: 0.5rem;
+}
+.container > .login-form > * {
+  display: flex;
+  flex-flow: nowrap column;
+  justify-content: center;
+  align-items: flex-start;
+  margin-left: 0.25rem;
+}
+.container .email-wrapper {
+  border: 1px solid black;
+}
+.container .password-wrapper {
+  border: 1px solid red;
+}
+.container .button-wrapper {
+  border: 1px solid purple;
+}
+.container .button-wrapper > button {
+  border-radius: 1rem;
+  width: 100%;
+  padding-block: 0.5rem;
+  color: #B3B3B5;
+  background: #3A3C47;
+  font-weight: 600;
+}
+
+@media screen and (width <= 768px) {
+  main {
+    width: 90vw;
+    min-height: 60svh;
+  }
+}/*# sourceMappingURL=login.css.map */
